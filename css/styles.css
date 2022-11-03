@@ -542,7 +542,7 @@ p {
 /* =============== Connect =============== */
 .connect {
   background-color: var(--clr-grey-5);
-  background: url('/images/bg-laptop.png') no-repeat center/cover fixed;
+  background: url('../images/bg-laptop.png') no-repeat center/cover fixed;
   background-blend-mode: darken;
   width: 100%;
   height: 30vh;
