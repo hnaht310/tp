@@ -1,0 +1,673 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Inter:400,700, 800&display=swap');
+
+/* =============== Variables =============== */
+:root {
+  --clr-primary-1: #f9d639;
+  --clr-primary-2: #f7cb0a;
+  --clr-primary-3: #e9b949;
+  --clr-grey-1: #222222;
+  --clr-grey-2: #333;
+  --clr-grey-3: #525252;
+  --clr-grey-4: #7a7a7a;
+  --clr-grey-5: #b8b8b8;
+  --clr-grey-6: #e0e0e0;
+  --clr-grey-7: #f5f5f5;
+
+  --ff-primary: 'Inter', sans-serif;
+  --ff-secondary: 'Open Sans', sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.15rem;
+  --radius: 1.2rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+}
+/* =============== Global Styles =============== */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  /* background: var(--clr-grey-1); */
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+.btn {
+  color: var(--clr-grey-5);
+  background-color: transparent;
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  font-weight: 700;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid var(--clr-grey-4);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+}
+.btn:hover {
+  border: 2px solid var(--clr-);
+  color: var(--clr-grey-7);
+}
+/* section */
+.section-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  /* padding: 0 1.5rem; */
+}
+.section-title h2 {
+  color: #f5f5f5;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+.underline {
+  width: 5rem;
+  height: 0.2rem;
+  margin-bottom: 2rem;
+  background: var(--clr-primary-3);
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title {
+  text-align: center;
+}
+
+/* =============== Navbar =============== */
+.nav-links {
+  display: none;
+}
+.nav {
+  height: 5rem;
+  padding: 1rem;
+  display: grid;
+  /* make nav-center align centered */
+  align-items: center;
+  transition: var(--transition);
+  background-color: var(--clr-grey-1);
+}
+.nav-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  /* padding: 0 2rem; */
+}
+.nav-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.nav-header h4 {
+  color: var(--clr-grey-7);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  letter-spacing: 0;
+}
+.nav-header span {
+  color: var(--clr-grey-5);
+}
+.nav-btn {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--clr-grey-7);
+  font-size: 2rem;
+  cursor: pointer;
+  justify-self: end;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--clr-primary-2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (min-width: 768px) {
+  .nav {
+    background-color: var(--clr-grey-1);
+  }
+  .nav:hover {
+    background-color: var(--clr-grey-2);
+  }
+  .nav-btn {
+    display: none;
+  }
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+    justify-self: end;
+  }
+  .nav-links a {
+    color: var(--clr-grey-5);
+    font-weight: bold;
+    letter-spacing: var(--spacing);
+    transition: var(--transition);
+  }
+  .nav-links a:hover {
+    color: var(--clr-primary-2);
+    font-weight: bold;
+    border-bottom: 2px solid var(--clr-primary-3);
+  }
+  .nav-center {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+}
+/* fixed navbar */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--clr-grey-2);
+  z-index: 2;
+  box-shadow: var(--light-shadow);
+}
+
+/* =============== Sidebar =============== */
+.sidebar {
+  /* relative to the viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* take up all the screen */
+  width: 100%;
+  height: 100%;
+  background: var(--clr-grey-1);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  transform: translateX(-100%);
+}
+.show-sidebar {
+  transform: translateX(0);
+}
+.sidebar-links {
+  text-align: center;
+}
+.sidebar-links a {
+  font-size: 2rem;
+  color: var(--clr-grey-5);
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.sidebar-links a:hover {
+  color: var(--clr-primary-3);
+  border-bottom: 2px solid var(--clr-primary-2);
+}
+.social-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 5rem;
+  justify-items: center;
+  margin: 0 auto;
+  margin-top: 1rem;
+  /* display: flex;
+  justify-content: center;
+  gap: 1rem; */
+}
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--clr-grey-5);
+  transition: var(--transition);
+}
+.social-icon:hover {
+  color: var(--clr-primary-2);
+}
+.close-btn {
+  /* relative to the sidebar (sidebar has position of fixed
+  The parent, in addition to relative, can also have absolute, fixed, and sticky too for absolute positioning of child to work. */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border: transparent;
+  transition: var(--transition);
+  color: var(--clr-grey-5);
+}
+.close-btn:hover {
+  color: var(--clr-primary-2);
+}
+
+/* =============== Hero =============== */
+.hero {
+  background-color: var(--clr-grey-1);
+  padding: 0;
+  padding-bottom: 5rem;
+}
+.hero .underline {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 0;
+  height: 0.1rem;
+}
+.hero-img {
+  position: relative;
+}
+.hero-center {
+  /* subtract the navbar's height */
+  height: calc(70vh - 5rem);
+  display: grid;
+  place-items: center;
+}
+.hero h2 {
+  color: var(--clr-grey-7);
+}
+#elementTw {
+  color: var(--clr-primary-3);
+  font-size: 2rem;
+  text-align: center;
+}
+#elementTw::after {
+  content: '|';
+  margin-left: 5px;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (min-width: 768px) {
+  #elementTw {
+    padding-top: 5rem;
+    font-size: 2.5rem;
+  }
+}
+.hero-info h3 {
+  color: var(--clr-grey-5);
+  font-size: 1.5rem;
+}
+.hero-icons {
+  margin-left: 0;
+  justify-items: start;
+}
+.hero-btn {
+  margin-top: 1.25rem;
+  border: 2px solid var(--clr-primary-3);
+}
+.hero-btn:hover {
+  border: 2px solid var(--clr-primary-1);
+  transform: translateY(-2px);
+}
+.hero-photo {
+  max-width: 20rem;
+  max-height: 25rem;
+  -o-object-fit: fit;
+  object-fit: fit;
+  border-radius: var(--radius);
+  position: relative;
+}
+/* tried z-index but it didn't work */
+/* Z-Index does not work without a defined position or Position: Static
+ */
+.hero-img::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0.25rem solid var(--clr-grey-5);
+  top: 1.5rem;
+  right: -1.5rem;
+  border-radius: var(--radius);
+}
+@media (min-width: 992px) {
+  .hero-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =============== Skills =============== */
+/* small screen layout setup */
+.skills {
+  background-color: var(--clr-grey-2);
+  padding: 3rem 0;
+}
+.skill {
+  background-color: var(--clr-grey-1);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: 2px 2px 1rem var(--clr-grey-3);
+}
+.skill h4 {
+  color: var(--clr-grey-5);
+}
+.fa-brands {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--clr-grey-5);
+}
+.skill-img {
+  width: 3rem;
+  margin: 0 auto;
+  color: #dab307;
+}
+.skill-img img {
+  border: #d6d6d6;
+}
+.skill .underline {
+  width: 2rem;
+  height: 2px;
+  transition: var(--transition);
+}
+.skill:hover {
+  background-color: var(--clr-grey-5);
+}
+.skill:hover h4,
+.skill:hover .fa-brands {
+  color: var(--clr-grey-1);
+}
+.skill:hover .underline {
+  background-color: var(--clr-grey-7);
+}
+@media (min-width: 676px) {
+  .skills-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .skills-center {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+  }
+}
+
+/* =============== Projects =============== */
+.projects {
+  background-color: var(--clr-grey-1);
+  padding: 3rem 0;
+}
+.projects-center {
+  display: grid;
+  /* set min and max for width of each column */
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 3rem 1rem;
+}
+.card {
+  height: 22rem;
+  position: relative;
+  perspective: 1500px;
+}
+.card-side {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 1.5s linear;
+  border-radius: var(--radius);
+  -webkit-transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+.card-front {
+  background: var(--clr-grey-1);
+}
+.card-info {
+  padding: 1rem 1.5rem;
+  color: var(--clr-grey-5);
+}
+.card-back {
+  background-color: var(--clr-primary-10);
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+}
+.card-back a {
+  color: var(--clr-primary-2);
+  font-size: 1.25rem;
+}
+.card-back a:hover {
+  color: var(--clr-grey-7);
+}
+/* when being hovered, card-front will flip backwards from right to left then hide itself */
+.card:hover .card-front {
+  transform: rotateY(-180deg);
+}
+/* when being hovered, the card-back will go back to its normal state which mean it faces toward the user */
+.card:hover .card-back {
+  transform: rotateY(0);
+}
+.card-front img {
+  height: 15rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.card-footer p {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  justify-self: end;
+  background-color: var(--clr-primary-3);
+  font-size: 0.85rem;
+}
+
+/* =============== Connect =============== */
+.connect {
+  background-color: var(--clr-grey-5);
+  background: url('/images/bg-laptop.png') no-repeat center/cover fixed;
+  background-blend-mode: darken;
+  width: 100%;
+  height: 30vh;
+  padding: 3rem 0;
+  display: grid;
+  place-items: center;
+}
+.connect-center {
+  color: var(--clr-grey-6);
+  text-align: center;
+}
+.connect-center p {
+  color: var(--clr-grey-6);
+}
+.connect-center .btn {
+  padding: 0.375rem 2rem;
+  border: 2px solid var(--clr-primary-3);
+}
+.connect-center .btn:hover {
+  border: 2px solid var(--clr-primary-1);
+  transform: translateY(-2px);
+}
+
+.connect a {
+  color: var(--clr-grey-5);
+}
+
+/* =============== Footer =============== */
+.footer {
+  padding: 1.5rem 6rem;
+  background-color: var(--clr-grey-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .social-icons {
+  margin: 0;
+  gap: 1.5rem;
+}
+.footer .social-icon {
+  font-size: 1.2rem;
+}
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.footer h4,
+footer p {
+  margin-bottom: 0;
+  color: var(--clr-grey-4);
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+.footer h4 {
+  color: var(--clr-grey-6);
+  font-size: 1.2rem;
+}
+.footer h4 span {
+  color: var(--clr-grey-4);
+}
+
+/* =============== Projects Page =============== */
+.projects-hero {
+  height: 40vh;
+  background-color: var(--clr-grey-1);
+  display: grid;
+  place-items: center;
+}
+.projects-hero .section-title {
+  margin-bottom: 0;
+}
+.single-project {
+  background-color: var(--clr-grey-7);
+  border-radius: var(--radius);
+}
+.project-container img {
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.project-container {
+  position: relative;
+}
+.project-icon {
+  position: absolute;
+  font-size: 1.75rem;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--clr-primary-3);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--clr-primary-1);
+  border: 0.375rem solid var(--clr-grey-7);
+}
+
+.project-details {
+  padding: 2rem 1.5rem;
+}
+
+.project-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--clr-primary-3);
+}
+
+.project-footer a {
+  color: var(--clr-primary-3);
+  text-transform: capitalize;
+  transition: var(--transition);
+  justify-self: end;
+}
+
+.project-footer a:hover {
+  color: var(--clr-primary-1);
+}
+
+/* auto-fill: When we have only 1 grid item, even if there's no more items to fill, the grid still reserves the space for them. We still have the column layout */
+/* auto-fit: When we have only 1 grid item, the item will take its max */
+/* When we have more than 1 grid items => NO DIFFERENCE between auto-fit and auto-fill*/
+.projects-page-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 3rem 1rem;
+}
